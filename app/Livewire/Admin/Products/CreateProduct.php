@@ -14,19 +14,19 @@ class CreateProduct extends Component
     public $image;
     public $status;
     public $description;
-    public $category_id;
-    public $categories = [];
+    public $sub_category_id;
+    public $subCategories = [];
     protected $rules = [
         'name' => 'required|string|max:255',
         'image' => 'required|image|max:4096',
         'status' => 'required|boolean',
         'description' => 'nullable|string',
-        'category_id' => 'required|exists:categories,id',
+        'sub_category_id' => 'required|exists:sub_categories,id',
     ];
     
     public function mount()
     {
-        $this->categories = Category::all();
+        $this->subCategories = Category::all();
     }
 
     public function save()
@@ -44,7 +44,7 @@ class CreateProduct extends Component
                 'image' => $imagePath,
                 'status' => $this->status,
                 'description' => $this->description,
-                'category_id' => $this->category_id,
+                'sub_category_id' => $this->sub_category_id,
 
             ]);
 

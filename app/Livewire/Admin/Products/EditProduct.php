@@ -17,7 +17,7 @@ class EditProduct extends Component
     public $existingImage; // existing DB image path
     public $status;
     public $description;
-    public $category_id;
+    public $sub_category_id;
 
     public $categories = [];
     public $product;
@@ -27,7 +27,7 @@ class EditProduct extends Component
         'image' => 'nullable|image|max:4096', // not required when editing
         'status' => 'required|boolean',
         'description' => 'nullable|string',
-        'category_id' => 'required|exists:categories,id',
+        'sub_category_id' => 'required|exists:sub_categories,id',
     ];
 
     public function mount($id)
@@ -40,7 +40,7 @@ class EditProduct extends Component
         $this->existingImage = $this->product->image;
         $this->status = $this->product->status;
         $this->description = $this->product->description;
-        $this->category_id = $this->product->category_id;
+        $this->sub_category_id = $this->product->sub_category_id;
     }
 
     public function save()
@@ -65,7 +65,7 @@ class EditProduct extends Component
             'image' => $imagePath,
             'status' => $this->status,
             'description' => $this->description,
-            'category_id' => $this->category_id,
+            'sub_category_id' => $this->sub_category_id,
         ]);
 
         session()->flash('success', 'Product updated successfully!');

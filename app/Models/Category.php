@@ -11,8 +11,12 @@ class Category extends Model
         'name',
         'status',
     ];
-
-    public function products(){
-        return $this->hasMany(CategoryProduct::class, 'category_id');
+    public function subCategory()
+    {
+        return $this->hasMany(SubCategory::class);
+    }
+    public function products()
+    {
+        return $this->hasManyThrough(CategoryProduct::class, SubCategory::class);
     }
 }

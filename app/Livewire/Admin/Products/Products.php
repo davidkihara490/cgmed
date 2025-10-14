@@ -42,7 +42,7 @@ class Products extends Component
                 ! empty($this->search),
                 fn(Builder $q) => $q->where('name', 'like', "%{$this->search}%")
             )
-            ->get();
+            ->paginate(10);
         return view('livewire.admin.products.products', [
             'products' => $products
         ]);

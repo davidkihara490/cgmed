@@ -9,13 +9,13 @@ class CategoryProduct extends Model
     protected $fillable  = [
         'name',
         'image',
-        'category_id',
+        'sub_category_id',
         'description',
         'status',
     ];
 
-    public function category()
+    public function subCategory()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(SubCategory::class);
     }
 }

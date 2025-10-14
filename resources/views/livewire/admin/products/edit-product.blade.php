@@ -24,15 +24,15 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="mb-3">
-                                                <label class="form-label">Category</label>
-                                                <select class="form-control" wire:model="category_id">
+                                                <label class="form-label">Sub Category</label>
+                                                <select class="form-control" wire:model="sub_category_id">
                                                     <option value="">Select Category</option>
-                                                    @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}">
-                                                            {{ $category->name }}</option>
+                                                    @foreach ($subCategories as $subCategory)
+                                                        <option value="{{ $subCategory->id }}">
+                                                            {{ $subCategory->name }}</option>
                                                     @endforeach
                                                 </select>
-                                                @error('category_id')
+                                                @error('sub_category_id')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>

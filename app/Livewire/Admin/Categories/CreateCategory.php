@@ -8,7 +8,7 @@ use Livewire\Component;
 class CreateCategory extends Component
 {
     public $name;
-    public $status = true;
+    public $status = false;
 
     public function save(){
         $this->validate([
@@ -32,5 +32,4 @@ class CreateCategory extends Component
     {
         return view('livewire.admin.categories.create-category');
     }
-
 }

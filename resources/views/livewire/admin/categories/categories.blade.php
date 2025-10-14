@@ -34,8 +34,8 @@
                                 <td class="text-end">
                                     <a href="{{ route('categories.edit', $category->id) }}"
                                         class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="{{ route('categories.view', $category->id) }}"
-                                        class="btn btn-success btn-sm">View</a>
+                                    {{-- <a href="{{ route('categories.view', $category->id) }}"
+                                        class="btn btn-success btn-sm">View</a> --}}
                                     <button type="button" class="btn btn-danger btn-sm"
                                         wire:click="confirm({{ $category->id }})">
                                         Delete
@@ -48,7 +48,6 @@
                                 style="background-color: rgba(0,0,0,0.5);">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
-
                                         <div class="modal-header">
                                             <h5 class="modal-title">Delete Category</h5>
                                             <button type="button" class="btn-close"
@@ -58,14 +57,12 @@
                                             <p>Are you sure you want to delete this category? This operation is not
                                                 reversible.</p>
                                         </div>
-
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 wire:click="$set('showDeleteModal', false)">Cancel</button>
                                             <button type="button" class="btn btn-danger"
                                                 wire:click="delete">Delete</button>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

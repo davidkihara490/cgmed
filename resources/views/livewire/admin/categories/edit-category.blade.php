@@ -13,7 +13,7 @@
                                     <h4 class="header-title">Fill in the details</h4>
                                     <x-alerts.response-alerts />
                                     <div class="row">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Category Name</label>
                                                 <input class="form-control" type="text" wire:model="name">
@@ -22,14 +22,14 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label class="form-label">Category Description</label>
-                                                <textarea class="form-control" wire:model="description"></textarea>
-                                                @error('name')
+                                                <label class="form-label">Status</label>
+                                                <select class="form-control" wire:model="status">
+                                                    <option value="1">Active</option>
+                                                    <option value="0">Disabled</option>
+                                                </select>
+                                                @error('status')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>

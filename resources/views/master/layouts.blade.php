@@ -730,8 +730,31 @@
 </head>
 
 <body>
-
+    
     @yield('content')
+    <!-- Partners Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Our Partners</h2>
+            <p class="text-center mb-5">We collaborate with leading medical institutions and distributors worldwide to
+                bring innovative solutions to healthcare professionals.</p>
+            <div class="partner-logos">
+                <img src="https://via.placeholder.com/150x60/1a76d2/ffffff?text=MedTech+Global" class="partner-logo"
+                    alt="Partner 1">
+                <img src="https://via.placeholder.com/150x60/1a76d2/ffffff?text=Dental+Innovations" class="partner-logo"
+                    alt="Partner 2">
+                <img src="https://via.placeholder.com/150x60/1a76d2/ffffff?text=Surgical+Solutions" class="partner-logo"
+                    alt="Partner 3">
+                <img src="https://via.placeholder.com/150x60/1a76d2/ffffff?text=Aesthetic+Partners" class="partner-logo"
+                    alt="Partner 4">
+                <img src="https://via.placeholder.com/150x60/1a76d2/ffffff?text=Global+Health" class="partner-logo"
+                    alt="Partner 5">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    @include('master.footer')
 </body>
 
 </html>
