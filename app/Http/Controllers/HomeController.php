@@ -58,18 +58,21 @@ class HomeController extends Controller
     public function show($sectionType)
     {
         $data = AboutSection::where('section_type', $sectionType)->first();
-        
+
         // Share common data with other methods
         $settings = $this->getCompanySettings();
         $categories = $this->getCategories();
+        $aboutSection = $this->getAboutSection();
 
-        return view('section_type', compact('data', 'settings', 'categories'));
+        // dd($data);
+
+        return view('section_type', compact('data', 'settings', 'categories', 'aboutSection'));
     }
 
     public function showProduct($id)
     {
         $product = CategoryProduct::findOrFail((int)$id);
-        
+
         // Share common data
         $settings = $this->getCompanySettings();
         $categories = $this->getCategories();
@@ -82,11 +85,11 @@ class HomeController extends Controller
     {
         $subCategory = SubCategory::findOrFail($id);
         $products = $subCategory->products()->where('status', true)->inRandomOrder()->limit(9)->get();
-        
+
         // Share common data
         $settings = $this->getCompanySettings();
         $categories = $this->getCategories();
-                $aboutSection = $this->getAboutSection();
+        $aboutSection = $this->getAboutSection();
 
 
 

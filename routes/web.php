@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
-Route::get('/{sectionType}', [HomeController::class, 'show'])->name('section-type.show');
+Route::get('/category/{sectionType}', [HomeController::class, 'show'])->name('section-type.show');
 
 Route::get('/product/{product}', [HomeController::class, 'showProduct'])->name('product.show');
 
@@ -19,7 +19,7 @@ Route::get('/sub-category/{category}',  [HomeController::class, 'showCategory'])
 Route::prefix('admin')->group(function () {
 
     Route::get('/', function () {
-        return view('admin.pages.dashboard.dashboard');
+        return redirect()->route('dashboard');
     });
     Route::get('login', Login::class)->name('admin.login');
 

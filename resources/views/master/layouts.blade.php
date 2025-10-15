@@ -733,7 +733,7 @@
     
     @yield('content')
     <!-- Partners Section -->
-    <section class="py-5">
+    {{-- <section class="py-5">
         <div class="container">
             <h2 class="section-title">Our Partners</h2>
             <p class="text-center mb-5">We collaborate with leading medical institutions and distributors worldwide to
@@ -751,7 +751,7 @@
                     alt="Partner 5">
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Footer -->
     @include('master.footer')
