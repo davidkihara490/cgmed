@@ -14,6 +14,16 @@ Route::get('/product/{product}', [HomeController::class, 'showProduct'])->name('
 Route::get('/contact-form/{contact}',  [ContactController::class, 'showContactForm'])->name('contact');
 Route::get('/sub-category/{category}',  [HomeController::class, 'showCategory'])->name('category.show');
 
+Route::get('user/create-account', function () {
+    return view('auth.create-account');
+})->name('create-account');
+
+Route::get('user/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::post('logout', [HomeController::class, 'logout'])->name('logout');
+
 // Route::get('/contact-form', [ContactController::class, 'showContactForm'])->name('contact.form');
 
 Route::prefix('admin')->group(function () {

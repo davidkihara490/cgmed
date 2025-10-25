@@ -12,10 +12,10 @@ class EditGeneralSettings extends Component
     use WithFileUploads;
 
     public $company_name;
-    public $logo;                // For new upload
-    public $existing_logo;       // Existing image path from DB
-    public $hero_image;          // For new upload
-    public $existing_hero_image; // Existing image path from DB
+    public $logo;                
+    public $existing_logo;      
+    public $hero_image;          
+    public $existing_hero_image; 
     public $hero_title;
     public $hero_sub_title;
     public $about;
@@ -33,7 +33,6 @@ class EditGeneralSettings extends Component
 
     public function mount()
     {
-        // ✅ Load the first (and only) settings row
         $settings = CompanyProfile::first();
 
         if ($settings) {

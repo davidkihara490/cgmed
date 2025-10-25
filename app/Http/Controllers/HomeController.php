@@ -77,8 +77,9 @@ class HomeController extends Controller
         $settings = $this->getCompanySettings();
         $categories = $this->getCategories();
         $featuredProducts = $this->getFeaturedProducts();
-
-        return view('product', compact('product', 'settings', 'categories', 'featuredProducts'));
+        $similarProducts = CategoryProduct::where('sub_category_id', $product->sub_category_id)->inRandomOrder()->limit(3)->get();
+        $aboutSection = $this->getAboutSection();
+        return view('product', compact('aboutSection', 'product', 'similarProducts', 'settings', 'categories', 'featuredProducts'));
     }
 
     public function showCategory($id)
@@ -94,5 +95,11 @@ class HomeController extends Controller
 
 
         return view('category', compact('products', 'subCategory', 'settings', 'categories', 'aboutSection'));
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('/');
     }
 }

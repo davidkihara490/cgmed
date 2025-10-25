@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Products;
 
 use App\Models\Category;
 use App\Models\CategoryProduct;
+use App\Models\SubCategory;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -18,9 +19,9 @@ class EditProduct extends Component
     public $status;
     public $description;
     public $sub_category_id;
-
     public $categories = [];
     public $product;
+    public $subCategories = [];
 
     protected $rules = [
         'name' => 'required|string|max:255',
@@ -33,6 +34,7 @@ class EditProduct extends Component
     public function mount($id)
     {
         $this->categories = Category::all();
+        $this->subCategories = SubCategory::all();
         $this->product = CategoryProduct::findOrFail($id);
 
         // Load existing product details

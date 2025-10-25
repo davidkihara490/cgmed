@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGSMed - Medical Imaging Gallery</title>
+    <title>CGSMed - Medical Imaging System</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -221,7 +221,243 @@
             transform: translateX(-50%);
         }
 
-        /* Featured Products */
+        /* Product Section */
+        .product-section {
+            padding: 80px 0;
+            background-color: var(--secondary);
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-gallery {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .thumbnail.active,
+        .thumbnail:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px 0;
+        }
+
+        .product-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .product-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .product-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .product-features {
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li i {
+            color: var(--primary);
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            width: fit-content;
+        }
+
+        .quantity-btn {
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+        .quantity-input {
+            width: 50px;
+            height: 40px;
+            border: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .btn-add-to-cart {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-wishlist {
+            background: none;
+            border: 1px solid #e0e0e0;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .btn-wishlist:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .product-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .meta-item i {
+            color: var(--primary);
+        }
+
+        /* Specifications Section */
+        .specs-section {
+            padding: 60px 0;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .specs-table td {
+            padding: 15px 10px;
+        }
+
+        .specs-table td:first-child {
+            font-weight: 500;
+            width: 30%;
+        }
+
+        /* Related Products */
+        .related-products {
+            padding: 60px 0;
+            background-color: var(--secondary);
+        }
+
         .product-card {
             border: none;
             border-radius: 10px;
@@ -229,6 +465,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
             margin-bottom: 30px;
+            background: white;
         }
 
         .product-card:hover {
@@ -238,6 +475,22 @@
         .product-img {
             height: 200px;
             object-fit: cover;
+            width: 100%;
+        }
+
+        .product-card-body {
+            padding: 20px;
+        }
+
+        .product-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .product-card-price {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
         }
 
         /* Footer */
@@ -308,239 +561,6 @@
             color: #bdc3c7;
         }
 
-        /* Partner Section */
-        .partner-logos {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .partner-logo {
-            height: 60px;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .partner-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-
-        /* Contact Form */
-        .contact-form .form-control {
-            border-radius: 0;
-            border: 1px solid #e0e0e0;
-            padding: 12px 15px;
-            margin-bottom: 20px;
-        }
-
-        .contact-form .form-control:focus {
-            box-shadow: none;
-            border-color: var(--primary);
-        }
-
-        /* Image Gallery Section */
-        .image-gallery-section {
-            padding: 80px 0;
-            background-color: var(--secondary);
-        }
-        
-        .gallery-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .filter-controls {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 8px 20px;
-            background: var(--white);
-            border: 1px solid #e0e0e0;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            background: var(--white);
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-        }
-        
-        .gallery-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .gallery-content {
-            padding: 20px;
-        }
-        
-        .gallery-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-        
-        .gallery-description {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .gallery-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-        
-        .gallery-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .action-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dark);
-            transition: all 0.3s ease;
-        }
-        
-        .action-icon:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
-        
-        .featured-image {
-            grid-column: span 2;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .featured-image .gallery-image {
-            height: 300px;
-        }
-        
-        .image-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 4000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .image-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-        
-        .modal-image {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 8px;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: var(--white);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .modal-nav:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
-        .modal-prev {
-            left: 20px;
-        }
-        
-        .modal-next {
-            right: 20px;
-        }
-        
-        .modal-info {
-            color: var(--white);
-            text-align: center;
-            margin-top: 20px;
-        }
-
         /* RESPONSIVE: on smaller screens show vertical stacked dropdown (click-to-open) */
         @media (max-width: 992px) {
             .hero-section h1 {
@@ -574,18 +594,14 @@
                 padding: 10px 12px;
                 width: calc(100% - 32px);
             }
-            
-            .gallery-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .featured-image {
-                grid-column: span 1;
-            }
-            
-            .gallery-grid {
+
+            .product-container {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .product-actions {
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -594,226 +610,109 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    @include('master.header')
+    <!-- Product Section -->
+    <section class="product-section">
         <div class="container">
-            <a class="navbar-brand" href="#">CGSMed</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Medical Imaging
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">X-Ray</a></li>
-                            <li><a class="dropdown-item" href="#">MRI</a></li>
-                            <li><a class="dropdown-item" href="#">CT Scan</a></li>
-                            <li><a class="dropdown-item" href="#">Ultrasound</a></li>
-                            <li><a class="dropdown-item" href="#">Mammography</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+            <div class="product-container">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                            id="main-product-image">
+                    </div>
+                </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <h1>Medical Imaging Gallery</h1>
-            <p>Explore our collection of advanced diagnostic imaging with detailed analysis and insights</p>
-            <a href="#" class="btn btn-primary">View All Cases</a>
-        </div>
-    </section>
-
-    <!-- Image Gallery Section -->
-    <section class="image-gallery-section">
-        <div class="container">
-            <div class="gallery-header">
-                <h2 class="section-title">Diagnostic Imaging Cases</h2>
-                <div class="filter-controls">
-                    <button class="filter-btn active">All</button>
-                    <button class="filter-btn">MRI</button>
-                    <button class="filter-btn">CT Scan</button>
-                    <button class="filter-btn">X-Ray</button>
-                    <button class="filter-btn">Ultrasound</button>
-                </div>
-            </div>
-            
-            <div class="gallery-grid">
-                <!-- Featured Image -->
-                <div class="gallery-item featured-image">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" 
-                         alt="Brain MRI Scan" class="gallery-image">
-                    <div class="gallery-content">
-                        <h3 class="gallery-title">Brain MRI - Neurological Assessment</h3>
-                        <p class="gallery-description">High-resolution magnetic resonance imaging showing detailed brain structures for comprehensive neurological assessment and diagnosis.</p>
-                        <div class="gallery-meta">
-                            <span>Modality: MRI</span>
-                            <span>Date: Oct 15, 2023</span>
-                        </div>
-                        <div class="gallery-actions">
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-expand"></i>
-                            </a>
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-download"></i>
-                            </a>
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-share-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 1 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Chest X-Ray" class="gallery-image">
-                    <div class="gallery-content">
-                        <h3 class="gallery-title">Chest X-Ray - Pulmonary Evaluation</h3>
-                        <p class="gallery-description">Standard chest radiograph for assessment of pulmonary and cardiac structures.</p>
-                        <div class="gallery-meta">
-                            <span>Modality: X-Ray</span>
-                            <span>Date: Sep 28, 2023</span>
-                        </div>
-                        <div class="gallery-actions">
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-expand"></i>
-                            </a>
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 2 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581595218477-7c5ad476ef54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Abdominal CT" class="gallery-image">
-                    <div class="gallery-content">
-                        <h3 class="gallery-title">Abdominal CT Scan</h3>
-                        <p class="gallery-description">Computed tomography of the abdomen for detailed organ assessment.</p>
-                        <div class="gallery-meta">
-                            <span>Modality: CT Scan</span>
-                            <span>Date: Oct 5, 2023</span>
-                        </div>
-                        <div class="gallery-actions">
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-expand"></i>
-                            </a>
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Cardiac MRI" class="gallery-image">
-                    <div class="gallery-content">
-                        <h3 class="gallery-title">Cardiac MRI</h3>
-                        <p class="gallery-description">Magnetic resonance imaging focused on cardiac structure and function.</p>
-                        <div class="gallery-meta">
-                            <span>Modality: MRI</span>
-                            <span>Date: Oct 10, 2023</span>
-                        </div>
-                        <div class="gallery-actions">
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-expand"></i>
-                            </a>
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 4 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Musculoskeletal Ultrasound" class="gallery-image">
-                    <div class="gallery-content">
-                        <h3 class="gallery-title">Musculoskeletal Ultrasound</h3>
-                        <p class="gallery-description">Ultrasound imaging of musculoskeletal structures for soft tissue evaluation.</p>
-                        <div class="gallery-meta">
-                            <span>Modality: Ultrasound</span>
-                            <span>Date: Oct 12, 2023</span>
-                        </div>
-                        <div class="gallery-actions">
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-expand"></i>
-                            </a>
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 5 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Mammography" class="gallery-image">
-                    <div class="gallery-content">
-                        <h3 class="gallery-title">Screening Mammography</h3>
-                        <p class="gallery-description">Routine breast imaging for early detection of abnormalities.</p>
-                        <div class="gallery-meta">
-                            <span>Modality: Mammography</span>
-                            <span>Date: Oct 18, 2023</span>
-                        </div>
-                        <div class="gallery-actions">
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-expand"></i>
-                            </a>
-                            <a href="#" class="action-icon">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
+                <div class="product-info">
+                    <h1 class="product-title">{{ $product->name }}</h1>
+                    <p class="product-description">
+                        {{ $product->description }}
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Image Modal -->
-    <div class="image-modal">
-        <div class="modal-content">
-            <button class="modal-close">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="modal-nav modal-prev">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="modal-nav modal-next">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <img src="" alt="" class="modal-image">
-            <div class="modal-info">
-                <h3 class="modal-title"></h3>
-                <p class="modal-description"></p>
+    <!-- Specifications Section -->
+    {{-- <section class="specs-section">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+
+            <table class="specs-table">
+                <tr>
+                    <td>Field Strength</td>
+                    <td>3.0 Tesla</td>
+                </tr>
+                <tr>
+                    <td>Gradient Strength</td>
+                    <td>45 mT/m</td>
+                </tr>
+                <tr>
+                    <td>Slew Rate</td>
+                    <td>200 T/m/s</td>
+                </tr>
+                <tr>
+                    <td>Bore Diameter</td>
+                    <td>70 cm</td>
+                </tr>
+                <tr>
+                    <td>Magnet Length</td>
+                    <td>1.6 m</td>
+                </tr>
+                <tr>
+                    <td>Patient Weight Capacity</td>
+                    <td>205 kg (450 lbs)</td>
+                </tr>
+                <tr>
+                    <td>Cooling System</td>
+                    <td>Zero-boiloff with cryogen-free operation</td>
+                </tr>
+                <tr>
+                    <td>Power Requirements</td>
+                    <td>480V, 3-phase, 150A</td>
+                </tr>
+                <tr>
+                    <td>Dimensions (W x D x H)</td>
+                    <td>2.2 m x 3.8 m x 2.1 m</td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>7,500 kg</td>
+                </tr>
+                <tr>
+                    <td>Software Platform</td>
+                    <td>IntelliSuite 5.0 with AI integration</td>
+                </tr>
+                <tr>
+                    <td>Applications</td>
+                    <td>Neuro, Body, Cardiac, MSK, Oncology, Pediatrics</td>
+                </tr>
+            </table>
+        </div>
+    </section> --}}
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2 class="section-title">Related Products</h2>
+
+            <div class="row">
+
+                @foreach ($similarProducts as $product)
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="CT Scanner" class="product-img">
+                            <div class="product-card-body">
+                                <h5 class="product-card-title">{{ $product->name }}</h5>
+                                <p class="product-description">{{ $product->description }}
+                                </p>
+                                <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -821,7 +720,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <h5>CGSMed</h5>
-                    <p>Providing cutting-edge medical solutions with a focus on patient care and innovative technology.</p>
+                    <p>Providing cutting-edge medical solutions with a focus on patient care and innovative technology.
+                    </p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -835,18 +735,18 @@
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Services</a></li>
-                        <li><a href="#">Doctors</a></li>
+                        <li><a href="#">Products</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Services</h5>
+                    <h5>Products</h5>
                     <ul>
                         <li><a href="#">Medical Imaging</a></li>
-                        <li><a href="#">Laboratory Tests</a></li>
-                        <li><a href="#">Surgical Procedures</a></li>
-                        <li><a href="#">Emergency Care</a></li>
-                        <li><a href="#">Health Checkups</a></li>
+                        <li><a href="#">Surgical Equipment</a></li>
+                        <li><a href="#">Diagnostic Tools</a></li>
+                        <li><a href="#">Laboratory Equipment</a></li>
+                        <li><a href="#">Patient Monitoring</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -866,58 +766,66 @@
 
     <!-- Bootstrap 5 JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
-        // Simple modal functionality for demonstration
         document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.querySelector('.image-modal');
-            const modalImage = document.querySelector('.modal-image');
-            const modalTitle = document.querySelector('.modal-title');
-            const modalDescription = document.querySelector('.modal-description');
-            const closeModal = document.querySelector('.modal-close');
-            const expandButtons = document.querySelectorAll('.action-icon .fa-expand');
-            
-            // Open modal when expand button is clicked
-            expandButtons.forEach(button => {
-                button.closest('.action-icon').addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const galleryItem = this.closest('.gallery-item');
-                    const imageSrc = galleryItem.querySelector('.gallery-image').src;
-                    const title = galleryItem.querySelector('.gallery-title').textContent;
-                    const description = galleryItem.querySelector('.gallery-description').textContent;
-                    
-                    modalImage.src = imageSrc;
-                    modalTitle.textContent = title;
-                    modalDescription.textContent = description;
-                    modal.classList.add('active');
+            // Thumbnail gallery functionality
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('main-product-image');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Remove active class from all thumbnails
+                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+
+                    // Update main image
+                    const newImageSrc = this.getAttribute('data-image');
+                    mainImage.src = newImageSrc;
                 });
             });
-            
-            // Close modal
-            closeModal.addEventListener('click', function() {
-                modal.classList.remove('active');
-            });
-            
-            // Close modal when clicking outside the image
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
+
+            // Quantity selector functionality
+            const decreaseBtn = document.getElementById('decrease-qty');
+            const increaseBtn = document.getElementById('increase-qty');
+            const quantityInput = document.getElementById('product-qty');
+
+            decreaseBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
                 }
             });
-            
-            // Filter functionality
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // In a real implementation, you would filter the gallery items here
-                    // For this demo, we'll just show an alert
-                    alert(`Filtering by: ${this.textContent}`);
-                });
+
+            increaseBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+
+            // Add to cart functionality
+            const addToCartBtn = document.querySelector('.btn-add-to-cart');
+            addToCartBtn.addEventListener('click', function() {
+                const quantity = parseInt(quantityInput.value);
+                alert(`Added ${quantity} Advanced MRI System(s) to your cart!`);
+            });
+
+            // Wishlist functionality
+            const wishlistBtn = document.querySelector('.btn-wishlist');
+            wishlistBtn.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    this.style.color = 'var(--accent)';
+                    alert('Added to your wishlist!');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    this.style.color = 'var(--text-light)';
+                    alert('Removed from your wishlist!');
+                }
             });
         });
     </script>

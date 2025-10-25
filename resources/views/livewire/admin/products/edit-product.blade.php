@@ -67,7 +67,7 @@
                                                 <label class="form-label">Uploaded image</label>
                                                 @if ($product->image)
                                                     <div class="mt-2">
-                                                        <img src="{{ asset('storage/' . $product->image) }}"
+                                                        <img src="{{ asset('sto rage/' . $product->image) }}"
                                                             alt="Preview" class="img-thumbnail"
                                                             style="max-height: 200px;">
                                                     </div>

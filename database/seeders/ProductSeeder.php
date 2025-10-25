@@ -285,16 +285,16 @@ class ProductSeeder extends Seeder
     private function getMedicalImage(string $subCategory): string
     {
         $imageMap = [
-            'Antibiotics' => 'antibiotics.jpg',
-            'Pain Relievers' => 'pain-meds.jpg',
-            'Patient Monitors' => 'patient-monitor.jpg',
-            'Ventilators' => 'ventilator.jpg',
-            'Surgical Instruments' => 'surgical-tools.jpg',
-            'Thermometers' => 'thermometer.jpg',
-            'Bandages & Dressings' => 'bandages.jpg',
-            'Dental Chairs' => 'dental-chair.jpg',
-            'Animal Vaccines' => 'animal-vaccine.jpg',
-            'Mobility Aids' => 'mobility-aid.jpg'
+            'Antibiotics' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg',
+            'Pain Relievers' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg',
+            'Patient Monitors' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg',
+            'Ventilators' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg',
+            'Surgical Instruments' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg',
+            'Thermometers' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg',
+            'Bandages & Dressings' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg',
+            'Dental Chairs' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg',
+            'Animal Vaccines' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg',
+            'Mobility Aids' => 'products/LNtNL6DL7fX1NbI5g7WZlIpvpIXbqDYODdCFzbOJ.jpg'
         ];
 
         foreach ($imageMap as $key => $image) {

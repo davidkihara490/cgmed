@@ -40,10 +40,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact', 'contact') }}">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary ms-2" href="client-portal.html">Client Portal</a>
-                    </li>
-                </ul>
+                    @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button">
+                                {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </div>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-primary ms-2" href="{{ route('login') }}">Partner Portal</a>
+                        </li>
+                    @endauth    </ul>
             </div>
         </div>
     </nav>

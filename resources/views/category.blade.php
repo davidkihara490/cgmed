@@ -20,8 +20,9 @@
                 @foreach ($products as $product)
                     <div class="col-md-4">
                         <div class="card product-card">
-                            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                                class="card-img-top product-img" alt="Dental Implant">
+                            <img src="{{ asset('storage/'.$product->image) }}"
+                                class="card-img-top product-img" alt="{{ $product->name }}">
+
                             <div class="card-body">
                                 <h5 class="card-title">{{ $product->name }}</h5>
                                 <p class="card-text">{{ \Illuminate\Support\Str::limit($product->description, 100, '...') }}

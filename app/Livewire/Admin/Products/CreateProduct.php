@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Products;
 
 use App\Models\Category;
 use App\Models\CategoryProduct;
+use App\Models\SubCategory;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -23,10 +24,10 @@ class CreateProduct extends Component
         'description' => 'nullable|string',
         'sub_category_id' => 'required|exists:sub_categories,id',
     ];
-    
+
     public function mount()
     {
-        $this->subCategories = Category::all();
+        $this->subCategories = SubCategory::all();
     }
 
     public function save()
