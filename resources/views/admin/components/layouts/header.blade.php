@@ -44,20 +44,20 @@
                          {{ auth()->user()?->first_name }} {{ auth()->user()?->last_name }} <i class="mdi mdi-chevron-down"></i>
                      </span>
                  </a>
+                <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
 
-                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
+                    <!-- item-->
+                    <a class='dropdown-item notify-item' href="#"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i data-lucide="log-out" class="font-size-16 me-2"></i>
+                        <span>Logout</span>
+                    </a>
 
-                     <!-- item-->
-                     <a class='dropdown-item notify-item' href="#"
-                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                         <i data-lucide="log-out" class="font-size-16 me-2"></i>
-                         <span>Logout</span>
-                     </a>
-                     <form id="logout-form" action="#" method="POST" class="d-none">
-                         @csrf
-                     </form>
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
 
-                 </div>
+                </div>
              </li>
 
          </ul>

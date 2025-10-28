@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public $email = 'test@example.com';
+    public $email = 'admin@cgmed.com';
     public $password = 'password';
 
     public function rules()
@@ -39,7 +39,7 @@ class Login extends Component
         session()->regenerate();
         $user = Auth::user();
 
-        return redirect()->route('settings');
+        return redirect()->route('dashboard');
     }
     public function render()
     {

@@ -25,6 +25,7 @@ class User extends Authenticatable
         'confirm_password',
         'phone',
         'terms_agreement',
+        'is_admin',
     ];
 
     /**

@@ -22,13 +22,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@cgmed.com',
             'password' => Hash::make('password'),
             'phone' => '0712345678',
-            'terms_agreement' => true
+            'terms_agreement' => true,
+            'is_admin' => true
         ]);
 
         $this->call([
-            ProductSeeder::class,
-            SettingSeeder::class,
-            AboutSectionSeeder::class,
+            // ProductSeeder::class,
+            // SettingSeeder::class,
+            // AboutSectionSeeder::class,
         ]);
     }
 }

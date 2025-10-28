@@ -25,7 +25,7 @@
             </li>
 
             <li class="menu-item">
-                <a class='menu-link waves-effect' href="#">
+                <a class='menu-link waves-effect' href="{{ route('partners.index') }}">
                     <span class="menu-icon"><i data-lucide="users"></i></span>
                     <span class="menu-text"> Partners </span>
                 </a>

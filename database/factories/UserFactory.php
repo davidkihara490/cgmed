@@ -31,6 +31,7 @@ class UserFactory extends Factory
             'password' => Hash::make('password'),
             'phone' => fake()->unique()->phoneNumber(),
             'terms_agreement' => true,
+            'is_admin' => false,
             'remember_token' => Str::random(10),
         ];
     }

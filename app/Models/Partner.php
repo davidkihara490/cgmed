@@ -14,8 +14,6 @@ class Partner extends Model
         'first_name',
         'last_name',
         'email',
-        'password',
-        'confirm_password',
         'company_name',
         'company_type',
         'company_address',
@@ -24,9 +22,28 @@ class Partner extends Model
         'postal_code',
         'phone',
         'job_title',
-        'user_type',
         'terms_agreement',
         'user_type',
         'user_id'
     ];
+
+    public function getNameAttribute(): string
+    {
+        $first = trim((string) $this->first_name);
+        $last = trim((string) $this->last_name);
+
+        if ($first === '' && $last === '') {
+            return '';
+        }
+
+        if ($first === '') {
+            return $last;
+        }
+
+        if ($last === '') {
+            return $first;
+        }
+
+        return $first . ' ' . $last;
+    }
 }

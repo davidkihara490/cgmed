@@ -511,51 +511,6 @@
                 font-size: 0.75rem;
             }
         }
-
-        @media (max-width: 768px) {
-            .login-section {
-                padding: 40px 0;
-            }
-
-            .login-card {
-                padding: 30px 20px;
-                margin: 0 15px;
-            }
-
-            .login-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .social-login .row {
-                gap: 10px;
-            }
-
-            .social-login .col-6 {
-                width: 100%;
-            }
-        }
-
-        /* Loading state improvements */
-        .btn:disabled {
-            cursor: not-allowed;
-        }
-
-        /* Form validation styles */
-        .is-invalid {
-            border-color: #e74c3c !important;
-        }
-
-        .is-valid {
-            border-color: #27ae60 !important;
-        }
-
-        .invalid-feedback {
-            display: block;
-            width: 100%;
-            margin-top: 0.25rem;
-            font-size: 0.875rem;
-            color: #e74c3c;
-        }
     </style>
 </head>
 

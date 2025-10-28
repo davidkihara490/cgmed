@@ -22,16 +22,24 @@ Route::get('user/login', function () {
     return view('auth.login');
 })->name('login');
 
+Route::get('/user/password-request', function () {
+    return "Contract admin for password reset.";
+})->name('password.request');
+
 Route::post('logout', [HomeController::class, 'logout'])->name('logout');
 
 // Route::get('/contact-form', [ContactController::class, 'showContactForm'])->name('contact.form');
 
-Route::prefix('admin')->group(function () {
+
+Route::get('admin/login', Login::class)->name('admin.login');
+
+
+
+Route::prefix('admin')->middleware(['admin.auth'])->group(function () {
 
     Route::get('/', function () {
         return redirect()->route('dashboard');
     });
-    Route::get('login', Login::class)->name('admin.login');
 
     Route::get('/dashboard', function () {
         return view('admin.pages.dashboard.dashboard');
@@ -66,6 +74,25 @@ Route::prefix('admin')->group(function () {
             return view('admin.pages.sub-categories.view', compact('id'));
         })->name('sub-categories.view');
     });
+
+
+    Route::prefix('partners')->group(function () {
+        Route::get('/', function () {
+            return view('admin.pages.partners.index');
+        })->name('partners.index');
+        Route::get('create', function () {
+            return view('admin.pages.partners.create');
+        })->name('partners.create');
+        Route::get('edit/{id}', function ($id) {
+            return view('admin.pages.partners.edit', compact('id'));
+        })->name('partners.edit');
+        Route::get('view/{id}', function ($id) {
+            return view('admin.pages.partners.view', compact('id'));
+        })->name('partners.view');
+    });
+
+
+
 
     Route::prefix('products')->group(function () {
         Route::get('/', function () {
@@ -115,6 +142,7 @@ Route::prefix('admin')->group(function () {
     Route::get('settings', function () {
         return view('admin.pages.settings.company.profile');
     })->name('settings');
+
     // Route::get('settings', function () {
     //     return view('admin.pages.settings.company.profile');
     // })->name('settings');
@@ -122,4 +150,12 @@ Route::prefix('admin')->group(function () {
     Route::get('about', function () {
         return view('admin.pages.about.about');
     })->name('about');
+
+
+    Route::post('logout', function (\Illuminate\Http\Request $request) {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('admin.login');
+    })->name('admin.logout');
 });
