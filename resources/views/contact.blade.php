@@ -14,6 +14,13 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
+    {{-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script> --}}
+
+    {{-- 🧩 Load Google Maps JS API --}}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap">
+    </script>
+
+
 
     <style>
         :root {
@@ -584,7 +591,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Visit Our Clinic</h4>
-                            <p>123 Medical Drive, Health City, HC 12345</p>
+                            <p>{{ $settings->address }}</p>
                         </div>
                     </div>
 
@@ -594,8 +601,8 @@
                         </div>
                         <div class="contact-details">
                             <h4>Call Us</h4>
-                            <p>+1 (555) 123-4567</p>
-                            <p>+1 (555) 987-6543 (Emergency)</p>
+                            <p>{{ $settings->phone }}</p>
+                            <p>{{ $settings->phone }} (Emergency)</p>
                         </div>
                     </div>
 
@@ -605,8 +612,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email Us</h4>
-                            <p>info@cgsmed.com</p>
-                            <p>appointments@cgsmed.com</p>
+                            <p>{{ $settings->email }}</p>
                         </div>
                     </div>
 
@@ -628,6 +634,29 @@
                             <span style="margin-left: 10px;">Interactive Map Location</span>
                         </div>
                     </div>
+
+                    <div class="container mt-5">
+                        <h3>My Location on Google Maps</h3>
+                        <div id="map" style="width: 100%; height: 500px;"></div>
+                    </div>
+
+
+
+
+                    <div class="container mt-5">
+                        <h3>CGSMed Headquarters</h3>
+                        <div id="map" style="width: 100%; height: 500px;"></div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
                 </div>
 
                 <div class="contact-form-container">
@@ -767,6 +796,46 @@
             });
         });
     </script>
+
+    <script>
+        function initMap() {
+            // 📍 Your fixed company coordinates (Example: Nairobi)
+            const companyLocation = {
+                lat: -6.8278,
+                lng: 37.6591 
+            };
+
+            // 🗺️ Create the map centered on your company
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: companyLocation,
+            });
+
+            // 📌 Add a marker for the company
+            const marker = new google.maps.Marker({
+                position: companyLocation,
+                map: map,
+                title: "CGSMed Headquarters",
+            });
+
+            // 🏢 Info window on click
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                <div style="font-size:14px">
+                    <h6><strong>CGSMed</strong></h6>
+                    <p>Medical Excellence Center</p>
+                    <p><b>Address:</b> Nairobi, Kenya</p>
+                </div>
+            `,
+            });
+
+            marker.addListener("click", () => {
+                infoWindow.open(map, marker);
+            });
+        }
+    </script>
+
+
 </body>
 
 </html>

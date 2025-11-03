@@ -238,7 +238,7 @@ class EditAbout extends Component
 
     public function saveSection($sectionType)
     {
-        $this->validateOnly($this->getSectionRules($sectionType));
+        $this->validate($this->getSectionRules($sectionType));
 
         try {
             $data = [];
@@ -343,15 +343,98 @@ class EditAbout extends Component
         $this->dispatch('all-saved', message: 'All sections saved successfully!');
     }
 
+    // private function getSectionRules($sectionType)
+    // {
+    //     $rules = [];
+    //     foreach ($this->rules as $key => $rule) {
+    //         if (str_starts_with($key, $sectionType . '.')) {
+    //             $rules[$key] = $rule;
+    //         }
+    //     }
+    //     return $rules;
+    // }
+
+
     private function getSectionRules($sectionType)
     {
-        $rules = [];
-        foreach ($this->rules as $key => $rule) {
-            if (str_starts_with($key, $sectionType . '.')) {
-                $rules[$key] = $rule;
-            }
+        $sectionRules = [];
+
+        switch ($sectionType) {
+            case 'history':
+                $sectionRules = [
+                    'history.content' => 'nullable|string',
+                    'history.milestones' => 'nullable|string',
+                ];
+                break;
+
+            case 'mission':
+                $sectionRules = [
+                    'mission.mission' => 'nullable|string',
+                    'mission.vision' => 'nullable|string',
+                    'mission.philosophy' => 'nullable|string',
+                ];
+                break;
+
+            case 'team':
+                $sectionRules = [
+                    'team.team_members.*.name' => 'required|string|max:255',
+                    'team.team_members.*.position' => 'required|string|max:255',
+                    'team.team_members.*.department' => 'required|string|max:255',
+                    'team.team_members.*.description' => 'nullable|string',
+                    'team.team_members.*.email' => 'nullable|email',
+                    'teamMemberImages.*' => 'nullable|image|max:2048',
+                ];
+                break;
+
+            case 'values':
+                $sectionRules = [
+                    'values.content' => 'nullable|string',
+                    'values.culture' => 'nullable|string',
+                    'values.values.*' => 'nullable|string|max:255',
+                ];
+                break;
+
+            case 'quality':
+                $sectionRules = [
+                    'quality.content' => 'nullable|string',
+                    'quality.standards' => 'nullable|array',
+                    'quality.metrics.defect_rate' => 'nullable|numeric|min:0|max:100',
+                    'quality.metrics.customer_satisfaction' => 'nullable|numeric|min:0|max:100',
+                ];
+                break;
+
+            case 'innovation':
+                $sectionRules = [
+                    'innovation.content' => 'nullable|string',
+                    'innovation.focus_areas' => 'nullable|array',
+                    'innovation.rd_investment' => 'nullable|numeric|min:0',
+                    'innovation.patents_count' => 'nullable|integer|min:0',
+                    'innovation.research_partnerships' => 'nullable|integer|min:0',
+                ];
+                break;
+
+            case 'partnerships':
+                $sectionRules = [
+                    'partnerships.content' => 'nullable|string',
+                    'partnerships.partners.*.name' => 'nullable|string|max:255',
+                    'partnerships.partners.*.type' => 'nullable|string|max:255',
+                    'partnerships.partners.*.description' => 'nullable|string',
+                ];
+                break;
+
+            case 'certifications':
+                $sectionRules = [
+                    'certifications.certifications.*.name' => 'nullable|string|max:255',
+                    'certifications.certifications.*.authority' => 'nullable|string|max:255',
+                    'certifications.certifications.*.issue_date' => 'nullable|date',
+                    'certifications.certifications.*.expiry_date' => 'nullable|date',
+                    'certificationFiles.*' => 'nullable|file|mimes:pdf,jpg,png|max:5120',
+                    'certifications.compliance' => 'nullable|array',
+                ];
+                break;
         }
-        return $rules;
+
+        return $sectionRules;
     }
 
     public function setActiveTab($tab)
